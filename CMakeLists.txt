@@ -27,5 +27,6 @@ add_executable(
         ball.cpp
         paddle.h
         paddle.cpp
+        game.cpp
 )
 target_link_libraries(breakout PRIVATE raylib glfw)
