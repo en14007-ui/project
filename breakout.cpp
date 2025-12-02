@@ -57,7 +57,7 @@ int main()
     state = menu_state;
     while (!WindowShouldClose()) {
 
-
+        ClearBackground((Color){10, 20, 50, 255});
         if (state == menu_state && IsKeyPressed(KEY_SPACE))
         {
             load_level(0);
