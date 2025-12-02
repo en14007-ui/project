@@ -6,14 +6,17 @@
 #include "paddle.h"
 
 #include "raylib.h"
-
+void draw_pause_overlay()
+{
+    ClearBackground((Color){15, 18, 30, 255});
+    DrawRectangle(0, 0, 1280, 720, ColorAlpha(BLACK, 0.7f));
+    DrawText("PAUSED", 420, 250, 100, YELLOW);
+    DrawText("Press ESC to continue", 340, 380, 50, WHITE);
+}
 void update()
 {
     // TODO
 
-    if (IsKeyPressed(KEY_ESCAPE)) {
-        game_state = paused_state;
-    }
     if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
         move_paddle(-paddle_speed);
     }
@@ -44,18 +47,52 @@ int main()
 {
     SetConfigFlags(FLAG_VSYNC_HINT);
     InitWindow(1280, 720, "Breakout");
+    SetExitKey(KEY_NULL);
     SetTargetFPS(60);
 
     load_fonts();
     load_textures();
     load_level();
     load_sounds();
-
+    state = menu_state;
     while (!WindowShouldClose()) {
-        BeginDrawing();
 
-        draw();
-        update();
+
+        if (state == menu_state && IsKeyPressed(KEY_SPACE))
+        {
+            load_level(0);
+            state = in_game_state;
+        }
+
+        if (state == in_game_state || state == paused_state)
+        {
+            if (IsKeyPressed(KEY_ESCAPE))
+            {
+                state = (state == in_game_state) ? paused_state : in_game_state;
+            }
+        }
+
+        if (state == in_game_state) {
+            update();
+        }
+        BeginDrawing();
+        if (state == menu_state)
+        {
+            draw_menu();
+        }
+        else
+        {
+            ClearBackground(BLACK);
+            if (state != paused_state) {
+                draw();
+            }
+
+            if (state == paused_state)
+            {
+                draw_pause_overlay();
+            }
+        }
+
 
         EndDrawing();
     }

@@ -8,13 +8,13 @@
 #include "raylib.h"
 
 char* current_level_data;
-
+game_state state = menu_state;
 void load_level(const int offset)
 {
     current_level_index += offset;
 
     if (current_level_index >= level_count) {
-        game_state = victory_state;
+        state = victory_state;
         ClearBackground(BLACK);
         init_victory_menu();
         current_level_index = 0;

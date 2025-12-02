@@ -103,20 +103,21 @@ void derive_graphics_metrics()
 
 void draw_menu()
 {
-    ClearBackground(BLACK);
+    ClearBackground((Color){15, 18, 30, 255});
 
     const Text game_title = {
-        "Breakout",
-        { 0.50f, 0.50f },
-        200.0f,
-        RED,
-        4.0f,
-        &menu_font
+        "Platformer",
+        {0.50f, 0.45f
+    },
+       200.0f,
+        (Color){ 255, 220, 90, 255 },
+          6.0f,
+       &menu_font
     };
     draw_text(game_title);
 
     const Text game_subtitle = {
-        "Press Enter to Start",
+        "Press Space to Start",
         { 0.50f, 0.65f },
         32.0f,
         WHITE,

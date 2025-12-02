@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include <cstddef>
-
+#include<cmath>
 constexpr char VOID = ' ';
 constexpr char WALL = '#';
 constexpr char BLOCKS = '@';
@@ -67,6 +67,7 @@ inline level levels[level_count] = {
     level_1, level_2
 };
 
-inline game_state game_state = menu_state;
 
+
+extern game_state state;
 #endif // GAME_H
