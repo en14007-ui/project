@@ -107,8 +107,7 @@ void draw_menu()
 
     const Text game_title = {
         "Platformer",
-        {0.50f, 0.45f
-    },
+        {0.50f, 0.45f},
        200.0f,
         (Color){ 255, 220, 90, 255 },
           6.0f,
@@ -152,7 +151,7 @@ void draw_ui()
 
 void draw_level()
 {
-    ClearBackground(BLACK);
+    ClearBackground((Color){15, 18, 30, 255});
 
     for (size_t row = 0; row < current_level.rows; ++row) {
         for (size_t column = 0; column < current_level.columns; ++column) {

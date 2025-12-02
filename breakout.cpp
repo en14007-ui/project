@@ -6,6 +6,8 @@
 #include "paddle.h"
 
 #include "raylib.h"
+bool player_won=false;
+
 void draw_pause_overlay()
 {
     ClearBackground((Color){15, 18, 30, 255});
@@ -28,7 +30,9 @@ void update()
         load_level();
         PlaySound(lose_sound);
     } else if (current_level_blocks == 0) {
-        load_level(1);
+
+        player_won=true;
+        init_victory_menu();
         PlaySound(win_sound);
     }
 }
@@ -45,6 +49,7 @@ void draw()
 
 int main()
 {
+
     SetConfigFlags(FLAG_VSYNC_HINT);
     InitWindow(1280, 720, "Breakout");
     SetExitKey(KEY_NULL);
@@ -57,7 +62,7 @@ int main()
     state = menu_state;
     while (!WindowShouldClose()) {
 
-        ClearBackground((Color){10, 20, 50, 255});
+
         if (state == menu_state && IsKeyPressed(KEY_SPACE))
         {
             load_level(0);
@@ -90,6 +95,13 @@ int main()
             if (state == paused_state)
             {
                 draw_pause_overlay();
+            }
+        }if (player_won) {
+            draw_victory_menu();
+            if (IsKeyPressed(KEY_ENTER)) {
+                player_won=false;
+                load_level(0);
+                state=in_game_state;
             }
         }
 
