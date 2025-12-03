@@ -27,13 +27,23 @@ void update()
     }
     move_ball();
     if (!is_ball_inside_level()) {
-        load_level();
-        PlaySound(lose_sound);
-    } else if (current_level_blocks == 0) {
+        load_level(0);
 
-        player_won=true;
-        init_victory_menu();
-        PlaySound(win_sound);
+        PlaySound(lose_sound);
+
+    } else if (current_level_blocks == 0) {
+        if (current_level_index + 1 < level_count) {
+            load_level(1);
+            PlaySound(win_sound);
+        }
+
+
+        else {
+            player_won=true;
+            init_victory_menu();
+
+            PlaySound(win_sound);
+        }
     }
 }
 
