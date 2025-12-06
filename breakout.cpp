@@ -6,11 +6,11 @@
 #include "paddle.h"
 
 #include "raylib.h"
-bool player_won=false;
+bool player_won = false;
 
 void draw_pause_overlay()
 {
-    ClearBackground((Color){15, 18, 30, 255});
+    ClearBackground((Color) { 15, 18, 30, 255 });
     DrawRectangle(0, 0, 1280, 720, ColorAlpha(BLACK, 0.7f));
     DrawText("PAUSED", 420, 250, 100, YELLOW);
     DrawText("Press ESC to continue", 340, 380, 50, WHITE);
@@ -37,9 +37,8 @@ void update()
             PlaySound(win_sound);
         }
 
-
         else {
-            player_won=true;
+            player_won = true;
             init_victory_menu();
 
             PlaySound(win_sound);
@@ -61,7 +60,7 @@ int main()
 {
 
     SetConfigFlags(FLAG_VSYNC_HINT);
-    InitWindow(1280, 720, "Breakout");
+    InitWindow(1920, 1080, "Breakout");
     SetExitKey(KEY_NULL);
     SetTargetFPS(60);
 
@@ -72,17 +71,13 @@ int main()
     state = menu_state;
     while (!WindowShouldClose()) {
 
-
-        if (state == menu_state && IsKeyPressed(KEY_SPACE))
-        {
+        if (state == menu_state && IsKeyPressed(KEY_SPACE)) {
             load_level(0);
             state = in_game_state;
         }
 
-        if (state == in_game_state || state == paused_state)
-        {
-            if (IsKeyPressed(KEY_ESCAPE))
-            {
+        if (state == in_game_state || state == paused_state) {
+            if (IsKeyPressed(KEY_ESCAPE)) {
                 state = (state == in_game_state) ? paused_state : in_game_state;
             }
         }
@@ -91,30 +86,26 @@ int main()
             update();
         }
         BeginDrawing();
-        if (state == menu_state)
-        {
+        if (state == menu_state) {
             draw_menu();
-        }
-        else
-        {
+        } else {
             ClearBackground(BLACK);
             if (state != paused_state) {
                 draw();
             }
 
-            if (state == paused_state)
-            {
-                draw_pause_overlay();
-            }
-        }if (player_won) {
-            draw_victory_menu();
-            if (IsKeyPressed(KEY_ENTER)) {
-                player_won=false;
-                load_level(0);
-                state=in_game_state;
+            if (state == paused_state) {
+                draw_pause_menu();
             }
         }
-
+        if (player_won) {
+            draw_victory_menu();
+            if (IsKeyPressed(KEY_ENTER)) {
+                player_won = false;
+                load_level(0);
+                state = in_game_state;
+            }
+        }
 
         EndDrawing();
     }
