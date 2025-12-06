@@ -60,7 +60,7 @@ int main()
 {
 
     SetConfigFlags(FLAG_VSYNC_HINT);
-    InitWindow(1920, 1080, "Breakout");
+    InitWindow(1920, 1080, "Platformer");
     SetExitKey(KEY_NULL);
     SetTargetFPS(60);
 
