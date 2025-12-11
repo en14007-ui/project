@@ -18,9 +18,8 @@ void load_textures()
     void_texture = LoadTexture("data/images/void.png");
     block_texture = LoadTexture("data/images/block.png");
     paddle_texture = LoadTexture("data/images/paddle.png");
-    ball_sprite = load_sprite("data/images/ball/ball", ".png", 8, true, 10);
+    ball_sprite = load_sprite("data/images/fire_ball/fire_ball", ".png", 8, true, 10);
 }
-
 void unload_textures()
 {
     UnloadTexture(wall_texture);
