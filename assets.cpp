@@ -14,9 +14,9 @@ void unload_fonts()
 
 void load_textures()
 {
-    wall_texture = LoadTexture("data/images/minecraft_stone.png");
+    wall_texture = LoadTexture("data/images/brick.png");
     void_texture = LoadTexture("data/images/void.png");
-    block_texture = LoadTexture("data/images/block.png");
+    block_texture = LoadTexture("data/images/wood.png");
     paddle_texture = LoadTexture("data/images/paddle.png");
     ball_sprite = load_sprite("data/images/fire_ball/fire_ball", ".png", 8, true, 10);
 }
