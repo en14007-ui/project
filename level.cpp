@@ -9,6 +9,11 @@
 
 char* current_level_data;
 game_state state = menu_state;
+void restart()
+{
+    current_level_index=0;
+    load_level(0);
+}
 void load_level(const int offset)
 {
     current_level_index += offset;

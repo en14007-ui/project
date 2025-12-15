@@ -15,9 +15,12 @@ void draw_pause_overlay()
     DrawText("PAUSED", 420, 250, 100, YELLOW);
     DrawText("Press ESC to continue", 340, 380, 50, WHITE);
 }
+void restart();
 void update()
 {
     // TODO
+
+
 
     if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
         move_paddle(-paddle_speed);
@@ -25,6 +28,7 @@ void update()
     if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) {
         move_paddle(paddle_speed);
     }
+
     move_ball();
     if (!is_ball_inside_level()) {
         load_level(0);
@@ -38,11 +42,13 @@ void update()
         }
 
         else {
-            player_won = true;
+
+            state=victory_state;
             init_victory_menu();
 
             PlaySound(win_sound);
         }
+
     }
 }
 
@@ -98,11 +104,11 @@ int main()
                 draw_pause_menu();
             }
         }
-        if (player_won) {
+        if (state == victory_state) {
             draw_victory_menu();
-            if (IsKeyPressed(KEY_ENTER)) {
-                player_won = false;
-                load_level(0);
+            if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_SPACE)) {
+
+                restart();
                 state = in_game_state;
             }
         }
