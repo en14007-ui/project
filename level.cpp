@@ -7,6 +7,10 @@
 
 #include "raylib.h"
 
+
+int lives = 3;
+int score = 0;
+
 char* current_level_data;
 game_state state = menu_state;
 void restart()

@@ -14,12 +14,15 @@ struct level {
     size_t rows = 0, columns = 0;
     char* data = nullptr;
 };
+extern int lives;
+extern int scores;
 
 enum game_state {
     menu_state,
     in_game_state,
     paused_state,
-    victory_state
+    victory_state,
+    gameover_state
 };
 
 inline char level_1_data[] = {

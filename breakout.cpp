@@ -31,11 +31,17 @@ void update()
 
     move_ball();
     if (!is_ball_inside_level()) {
-        load_level(0);
+        lives--;
 
         PlaySound(lose_sound);
 
-    } else if (current_level_blocks == 0) {
+        if (lives<=0) {
+            state=gameover_state;
+        }else {
+            load_level(0);
+        }
+    }
+    else if (current_level_blocks == 0) {
         if (current_level_index + 1 < level_count) {
             load_level(1);
             PlaySound(win_sound);
