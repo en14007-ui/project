@@ -147,6 +147,9 @@ void draw_ui()
         &menu_font
     };
     draw_text(boxes_remaining);
+    for (int i = 0; i < lives; i++) {
+        DrawRectangle(50 + i * 50, 50, 40, 40, RED);
+    }
 }
 
 void draw_level()
@@ -257,4 +260,12 @@ void draw_victory_menu()
         &menu_font
     };
     draw_text(victory_subtitle);
+}
+void draw_game_over_menu()
+{
+    ClearBackground(RED);
+
+    DrawText("GAME OVER", 600, 300, 120, WHITE);
+    DrawText(TextFormat("Final Score: %d", scores), 600, 400, 60, GOLD);
+    DrawText("Press SPACE or ENTER to restart", 500, 550, 50, WHITE);
 }

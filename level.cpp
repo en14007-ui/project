@@ -9,7 +9,7 @@
 
 
 int lives = 3;
-int score = 0;
+int scores = 0;
 
 char* current_level_data;
 game_state state = menu_state;

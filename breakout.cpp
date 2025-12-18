@@ -100,7 +100,18 @@ int main()
         BeginDrawing();
         if (state == menu_state) {
             draw_menu();
-        } else {
+        }else if (state==gameover_state) {
+            draw_game_over_menu();
+            if (IsKeyPressed(KEY_SPACE)||IsKeyPressed(KEY_ENTER))
+            {
+                lives=3;
+                scores=0;
+                load_level(0);
+                state=in_game_state;
+
+            }
+        }
+        else {
             ClearBackground(BLACK);
             if (state != paused_state) {
                 draw();
