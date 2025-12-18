@@ -8,7 +8,7 @@
 #include "raylib.h"
 
 
-int lives = 3;
+int lives = 5;
 int scores = 0;
 
 char* current_level_data;
