@@ -72,7 +72,7 @@ int main()
 {
 
     SetConfigFlags(FLAG_VSYNC_HINT);
-    InitWindow(1920, 1080, "Platformer");
+    InitWindow(1680, 980, "Platformer");
     SetExitKey(KEY_NULL);
     SetTargetFPS(60);
 

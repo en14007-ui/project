@@ -191,18 +191,18 @@ void draw_ball()
 
 void draw_pause_menu()
 {
-    ClearBackground(BLACK);
+    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), ColorAlpha(BLACK, 0.7f));
 
-    const Text paused_title = {
-        "Press Escape to Resume",
-        { 0.50f, 0.50f },
-        35.0f,
-        WHITE,
-        4.0f,
-        &menu_font
-    };
-    draw_text(paused_title);
+    int title_width = MeasureText("PAUSED", 120);
+    DrawText("PAUSED", (GetScreenWidth() - title_width) / 2, GetScreenHeight() / 2 - 100, 120, YELLOW);
+
+    int subtitle_width = MeasureText("Press ESC to continue", 60);
+    DrawText("Press ESC to continue", (GetScreenWidth() - subtitle_width) / 2, GetScreenHeight() / 2 + 50, 60, WHITE);
+
+    int bottom_width = MeasureText("Game Paused", 40);
+    DrawText("Game Paused", (GetScreenWidth() - bottom_width) / 2, GetScreenHeight() - 100, 40, LIGHTGRAY);
 }
+
 
 void init_victory_menu()
 {
