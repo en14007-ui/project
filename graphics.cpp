@@ -197,10 +197,10 @@ void draw_pause_menu()
     DrawText("PAUSED", (GetScreenWidth() - title_width) / 2, GetScreenHeight() / 2 - 100, 120, YELLOW);
 
     int subtitle_width = MeasureText("Press ESC to continue", 60);
-    DrawText("Press ESC to continue", (GetScreenWidth() - subtitle_width) / 2, GetScreenHeight() / 2 + 50, 60, WHITE);
+    DrawText("Press ESC to continue", (GetScreenWidth() - subtitle_width) / 2, GetScreenHeight() / 2 + 50, 60, YELLOW);
 
     int bottom_width = MeasureText("Game Paused", 40);
-    DrawText("Game Paused", (GetScreenWidth() - bottom_width) / 2, GetScreenHeight() - 100, 40, LIGHTGRAY);
+    DrawText("Game Paused", (GetScreenWidth() - bottom_width) / 2, GetScreenHeight() - 100, 40, YELLOW);
 }
 
 
