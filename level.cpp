@@ -15,8 +15,10 @@ char* current_level_data;
 game_state state = menu_state;
 void restart()
 {
+
     current_level_index=0;
     load_level(0);
+    lives = 5;
 }
 void load_level(const int offset)
 {
@@ -42,12 +44,22 @@ void load_level(const int offset)
                 ++current_level_blocks;
             }
         }
+    }if (current_level_index==level_count-1) {
+        boss.active=true;
+        boss.pos = { GetScreenWidth() / 2 - boss.width / 2, GetScreenHeight() * 0.15f };
+        boss.pos.y = shift_to_center.y + 2.5f * cell_size;
+        boss.health=10;
+        boss.speed=100.0f;
+        boss.direction=1;
+        boss.hit_cooldown = 0.0f;
+    }else {
+        boss.active=false;
     }
     current_level = { rows, columns, current_level_data };
+    ball_lost = false;
 
     spawn_ball();
     spawn_paddle();
-
     derive_graphics_metrics();
 }
 
@@ -112,3 +124,4 @@ char& get_colliding_level_cell(const Vector2 pos, const Vector2 size, const char
 
     return get_level_cell(static_cast<size_t>(pos.x), static_cast<size_t>(pos.y));
 }
+Boss boss;

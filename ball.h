@@ -6,7 +6,7 @@
 inline constexpr float ball_launch_vel_mag = 0.15f;
 inline constexpr float ball_launch_angle_degrees = 49.6f;
 inline constexpr Vector2 ball_size = { 1.0f, 1.0f };
-
+extern float ball_radius;
 inline Vector2 ball_pos;
 inline Vector2 ball_vel;
 

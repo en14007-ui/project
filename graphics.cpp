@@ -173,6 +173,19 @@ void draw_level()
             }
         }
     }
+    if (boss.active) {
+        draw_image(boss_texture, boss.pos.x, boss.pos.y, boss.width, boss.height);
+
+        float max_health = 10.0f;
+        float health_ratio = boss.health / max_health;
+
+        DrawRectangle(boss.pos.x, boss.pos.y - 30, boss.width, 20, DARKBLUE);
+        DrawRectangleLines(boss.pos.x, boss.pos.y - 30, boss.width, 20, WHITE);
+
+        DrawRectangle(boss.pos.x + 4, boss.pos.y - 26, (boss.width - 8) * health_ratio, 14, LIME);
+
+        DrawText(TextFormat("BOSS: %d", boss.health), boss.pos.x + 10, boss.pos.y - 45, 28, WHITE);
+    }
 }
 
 void draw_paddle()
@@ -202,7 +215,6 @@ void draw_pause_menu()
     int bottom_width = MeasureText("Game Paused", 40);
     DrawText("Game Paused", (GetScreenWidth() - bottom_width) / 2, GetScreenHeight() - 100, 40, YELLOW);
 }
-
 
 void init_victory_menu()
 {

@@ -1,18 +1,22 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <cmath>
 #include <cstddef>
-#include<cmath>
+#include <raylib.h>
 constexpr char VOID = ' ';
 constexpr char WALL = '#';
 constexpr char BLOCKS = '@';
 constexpr char PADDLE = 'P';
 constexpr char BOUNDARY = '!';
 constexpr char BALL = '*';
+constexpr char BOSS = 'B';
 
+extern bool ball_lost;
 struct level {
     size_t rows = 0, columns = 0;
     char* data = nullptr;
+
 };
 extern int lives;
 extern int scores;
@@ -24,6 +28,19 @@ enum game_state {
     victory_state,
     gameover_state
 };
+struct Boss {
+    Vector2 pos = {400, 200};
+    float width = 200;
+    float height = 60;
+    int health = 5;
+    bool active = false;
+    float speed = 100.0f;
+    int direction = 1;
+    float hit_cooldown = 0.0f;
+
+};
+
+extern Boss boss;
 
 inline char level_1_data[] = {
     '#', '#', '#', '#', '#', '#', '#', '#', '#',
@@ -82,9 +99,30 @@ inline char level_3_data[] = {
 };
 inline level level_3 = { 13, 15, level_3_data };
 
-inline constexpr size_t level_count = 3;
+inline char level_4_data[] = {
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
+   '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+   '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', ' ', '#',
+   '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#',
+   '#', ' ', '#', ' ', '@', '@', '@', '@', ' ', ' ', '#', ' ', '#',
+   '#', ' ', '#', ' ', '@', '@', '@', '@', ' ', ' ', '#', ' ', '#',
+   '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#',
+   '#', ' ', '#', '@', '@', ' ', ' ', ' ', '@', '@', '#', ' ', '#',
+   '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#',
+   '#', ' ', '#', '#', '#', '#', ' ', '#', '#', '#', '#', ' ', '#',
+   '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+   '#', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+   '#', ' ', ' ', 'P', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+   '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'
+};
+
+
+
+inline level level_4 = { 14, 13, level_4_data };
+
+inline constexpr size_t level_count = 4;
 inline level levels[level_count] = {
-    level_1, level_2,level_3
+    level_1, level_2,level_3, level_4
 };
 
 
