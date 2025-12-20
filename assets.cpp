@@ -14,7 +14,7 @@ void unload_fonts()
 
 void load_textures()
 {
-    wall_texture = LoadTexture("data/images/brick.png");
+    wall_texture = LoadTexture("data/images/wall_2.png");
     void_texture = LoadTexture("data/images/void.png");
     block_texture = LoadTexture("data/images/wood.png");
     paddle_texture = LoadTexture("data/images/paddle.png");
