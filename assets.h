@@ -6,7 +6,9 @@
 #include "sprite.h"
 
 inline Font menu_font;
-
+inline Sound brick_destroyed_sound;
+inline Sound Victory_sound;
+inline Sound Boss_hit_sound;
 inline Texture2D wall_texture;
 inline Texture2D void_texture;
 inline Texture2D paddle_texture;

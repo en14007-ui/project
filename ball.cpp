@@ -52,7 +52,7 @@ void move_ball()
             ball_vel.y = -ball_vel.y;
             next_ball_pos.y = std::round(next_ball_pos.y);
         }
-
+PlaySound(brick_destroyed_sound);
         temp = VOID;
         --current_level_blocks;
     // } else if (is_colliding_with_level_cell(next_ball_pos, ball_size, BOSS)) {

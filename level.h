@@ -9,7 +9,7 @@
 
 inline level current_level;
 inline size_t current_level_blocks;
-inline size_t current_level_index = 3;
+inline size_t current_level_index = 5;
 
 void load_level(int offset = 0);
 void unload_level();

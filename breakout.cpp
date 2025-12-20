@@ -6,10 +6,22 @@
 #include "paddle.h"
 
 #include "raylib.h"
+#include <cmath>
 bool player_won = false;
 bool ball_lost = false;
 
 void restart();
+
+static inline Rectangle px_rect_to_grid(const Vector2 px_pos, const Vector2 px_size)
+{
+    return Rectangle {
+        (px_pos.x - shift_to_center.x) / cell_size,
+        (px_pos.y - shift_to_center.y) / cell_size,
+        px_size.x / cell_size,
+        px_size.y / cell_size
+    };
+}
+
 void update()
 {
     // TODO
@@ -23,7 +35,6 @@ void update()
 
     move_ball();
     if (!is_ball_inside_level()) {
-
 
         lives--;
 
@@ -47,44 +58,63 @@ void update()
 
     if (boss.active) {
 
-        float dx = boss.speed * boss.direction * GetFrameTime();
-        Vector2 nextPos = boss.pos;
-        nextPos.x += dx;
+        const float dt = GetFrameTime();
+        float dx_total = boss.speed * (float)boss.direction * dt;
 
-        if (nextPos.x <= 0 || nextPos.x + boss.width >= GetScreenWidth()) {
-            boss.direction *= -1;
-            boss.speed += 20;
-            nextPos.x = boss.pos.x;
+        const float max_step_px = cell_size * 0.25f;
+        int steps = (int)std::ceil(std::fabs(dx_total) / (max_step_px > 1.0f ? max_step_px : 1.0f));
+        if (steps < 1)
+            steps = 1;
+        float dx_step = dx_total / (float)steps;
+
+        for (int i = 0; i < steps; ++i) {
+            const Vector2 old_pos = boss.pos;
+            Vector2 next_pos = boss.pos;
+            next_pos.x += dx_step;
+
+            if (next_pos.x <= 0.0f || next_pos.x + boss.width >= (float)GetScreenWidth()) {
+                boss.direction *= -1;
+                boss.speed += 20.0f;
+                boss.pos = old_pos;
+                break;
+            }
+
+            const Rectangle boss_grid_next = px_rect_to_grid(next_pos, { boss.width, boss.height });
+            if (is_colliding_with_level_cell({ boss_grid_next.x, boss_grid_next.y }, { boss_grid_next.width, boss_grid_next.height }, WALL)) {
+                boss.direction *= -1;
+                boss.speed += 20.0f;
+                boss.pos = old_pos;
+                break;
+            }
+
+            boss.pos = next_pos;
         }
 
-        boss.pos = nextPos;
-Rectangle boss_rect_grid = {
-    (boss.pos.x - shift_to_center.x) / cell_size+2,
-    (boss.pos.y - shift_to_center.y) / cell_size,
-    boss.width / cell_size-13,
-    boss.height / cell_size-12
-};
+        const Rectangle boss_grid = px_rect_to_grid(boss.pos, { boss.width, boss.height });
+        const Rectangle ball_grid = { ball_pos.x, ball_pos.y, ball_size.x, ball_size.y };
 
-if (boss.hit_cooldown > 0)
-    boss.hit_cooldown -= GetFrameTime();
+        if (boss.hit_cooldown > 0.0f)
+            boss.hit_cooldown -= dt;
 
-if (boss.hit_cooldown <= 0 &&
-    CheckCollisionCircleRec(ball_pos, ball_radius, boss_rect_grid)) {
+        if (boss.hit_cooldown <= 0.0f && CheckCollisionRecs(ball_grid, boss_grid)) {
+            boss.health--;
+            PlaySound(Boss_hit_sound);
+            boss.hit_cooldown = 2.20f;
 
-    boss.health--;
-    boss.hit_cooldown = 0.2f;
+            ball_vel.y *= -1.0f;
+            ball_vel.x += (ball_pos.x + ball_size.x * 0.1f - (boss_grid.x + boss_grid.width * 0.1f)) * 0.1f;
 
-    ball_vel.y = -fabs(ball_vel.y);
-    ball_pos.y = boss_rect_grid.y +ball_radius - 5.0f;
+            ball_pos.y = boss_grid.y - ball_size.y - 0.01f;
 
-    if (boss.health <= 0) {
-        boss.active = false;
-        state = victory_state;
-        init_victory_menu();
-    }
-}
+            PlaySound(lose_sound);
 
-
+            if (boss.health <= 0) {
+                boss.active = false;
+                state = victory_state;
+                init_victory_menu();
+                PlaySound(Victory_sound);
+            }
+        }
     }
 }
 void draw()

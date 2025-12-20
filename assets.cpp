@@ -36,10 +36,16 @@ void load_sounds()
     InitAudioDevice();
     win_sound = LoadSound("data/sounds/win.wav");
     lose_sound = LoadSound("data/sounds/lose.wav");
+    brick_destroyed_sound = LoadSound("data/sounds/brick_destroyed.wav");
+    Victory_sound = LoadSound("data/sounds/Victory.wav");
+    Boss_hit_sound = LoadSound("data/sounds/Boss_hit.ogg");
 }
 
 void unload_sounds()
 {
+    UnloadSound(brick_destroyed_sound);
+    UnloadSound(Victory_sound);
+    UnloadSound(Boss_hit_sound);
     UnloadSound(win_sound);
     UnloadSound(lose_sound);
     CloseAudioDevice();

@@ -8,6 +8,10 @@
 #include "raylib.h"
 
 
+bool big_paddle_active = false;
+bool fire_ball_active = false;
+int multi_ball_count = 0;
+
 int lives = 5;
 int scores = 0;
 
