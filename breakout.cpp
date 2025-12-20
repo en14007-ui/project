@@ -4,11 +4,12 @@
 #include "graphics.h"
 #include "level.h"
 #include "paddle.h"
-
 #include "raylib.h"
 #include <cmath>
 bool player_won = false;
 bool ball_lost = false;
+
+
 
 void restart();
 
@@ -115,6 +116,7 @@ void update()
                 PlaySound(Victory_sound);
             }
         }
+
     }
 }
 void draw()
@@ -163,7 +165,7 @@ int main()
             draw_game_over_menu();
             if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_ENTER)) {
                 lives = 5;
-                scores = 0;
+                score = 0;
                 load_level(0);
                 state = in_game_state;
             }

@@ -18,8 +18,10 @@ struct level {
     char* data = nullptr;
 
 };
+
+
 extern int lives;
-extern int scores;
+extern int score;
 
 enum game_state {
     menu_state,

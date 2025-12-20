@@ -2,7 +2,7 @@
 #include "assets.h"
 #include "level.h"
 #include "paddle.h"
-
+#include "graphics.h"
 #include "raylib.h"
 
 #include <cmath>
@@ -52,29 +52,19 @@ void move_ball()
             ball_vel.y = -ball_vel.y;
             next_ball_pos.y = std::round(next_ball_pos.y);
         }
-PlaySound(brick_destroyed_sound);
+        PlaySound(brick_destroyed_sound);
         temp = VOID;
         --current_level_blocks;
-    // } else if (is_colliding_with_level_cell(next_ball_pos, ball_size, BOSS)) {
-    //     char& temp = get_colliding_level_cell(next_ball_pos, ball_size, BOSS);
-    //
-    //     if (is_colliding_with_level_cell({ next_ball_pos.x, ball_pos.y }, ball_size, BOSS)) {
-    //         ball_vel.x = -ball_vel.x;
-    //         next_ball_pos.x = std::round(next_ball_pos.x);
-    //     }
-        // if (is_colliding_with_level_cell({ ball_pos.x, next_ball_pos.y }, ball_size, BOSS)) {
-        //     ball_vel.y = -ball_vel.y;
-        //     next_ball_pos.y = std::round(next_ball_pos.y);
-        // }
+        score+=1;
 
 
-    } else if (is_colliding_with_paddle(next_ball_pos, ball_size)) {
-        ball_vel.y = -std::abs(ball_vel.y);
-    }
+        } if (is_colliding_with_paddle(next_ball_pos, ball_size)) {
+            ball_vel.y = -std::abs(ball_vel.y);
 
+
+        }
     ball_pos = next_ball_pos;
 }
-
 bool is_ball_inside_level()
 {
     return is_inside_level(static_cast<int>(ball_pos.y), static_cast<int>(ball_pos.x));

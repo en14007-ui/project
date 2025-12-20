@@ -150,6 +150,15 @@ void draw_ui()
     for (int i = 0; i < lives; i++) {
         DrawRectangle(50 + i * 50, 50, 40, 40, RED);
     }
+    const Text score_text = {
+        "SCORE: " + std::to_string(score),
+        { 0.5f, 0.1f },
+        48.0f,
+        YELLOW,
+        4.0f,
+        &menu_font
+    };
+    draw_text(score_text);
 }
 
 void draw_level()
@@ -173,25 +182,27 @@ void draw_level()
             }
         }
     }
-    if (boss.active) {
-        draw_image(boss_texture, boss.pos.x, boss.pos.y, boss.width, boss.height);
 
-        float max_health = 10.0f;
-        float health_ratio = boss.health / max_health;
+        if (boss.active) {
+            draw_image(boss_texture, boss.pos.x, boss.pos.y, boss.width, boss.height);
 
-        DrawRectangle(boss.pos.x, boss.pos.y - 30, boss.width, 20, DARKBLUE);
-        DrawRectangleLines(boss.pos.x, boss.pos.y - 30, boss.width, 20, WHITE);
+            float max_health = 10.0f;
+            float health_ratio = boss.health / max_health;
 
-        DrawRectangle(boss.pos.x + 4, boss.pos.y - 26, (boss.width - 8) * health_ratio, 14, LIME);
+            DrawRectangle(boss.pos.x, boss.pos.y - 30, boss.width, 20, DARKBLUE);
+            DrawRectangleLines(boss.pos.x, boss.pos.y - 30, boss.width, 20, WHITE);
 
-        DrawText(TextFormat("BOSS: %d", boss.health), boss.pos.x + 10, boss.pos.y - 45, 28, WHITE);
+            DrawRectangle(boss.pos.x + 4, boss.pos.y - 26, (boss.width - 8) * health_ratio, 14, LIME);
+
+            DrawText(TextFormat("BOSS: %d", boss.health), boss.pos.x + 10, boss.pos.y - 45, 28, WHITE);
+        }
     }
-}
 
 void draw_paddle()
 {
     const float texture_x_pos = shift_to_center.x + paddle_pos.x * cell_size;
     const float texture_y_pos = shift_to_center.y + paddle_pos.y * cell_size;
+
     draw_image(paddle_texture, texture_x_pos, texture_y_pos, paddle_size.x * cell_size, paddle_size.y * cell_size);
 }
 
@@ -278,6 +289,6 @@ void draw_game_over_menu()
     ClearBackground(RED);
 
     DrawText("GAME OVER", 600, 300, 120, WHITE);
-    DrawText(TextFormat("Final Score: %d", scores), 600, 400, 60, GOLD);
+    DrawText(TextFormat("Final Score: %d", score), 600, 400, 60, GOLD);
     DrawText("Press SPACE or ENTER to restart", 500, 550, 50, WHITE);
 }

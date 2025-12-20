@@ -8,12 +8,12 @@
 #include "raylib.h"
 
 
-bool big_paddle_active = false;
+
 bool fire_ball_active = false;
 int multi_ball_count = 0;
 
 int lives = 5;
-int scores = 0;
+int score = 0;
 
 char* current_level_data;
 game_state state = menu_state;
@@ -23,6 +23,7 @@ void restart()
     current_level_index=0;
     load_level(0);
     lives = 5;
+    score=0;
 }
 void load_level(const int offset)
 {
