@@ -264,39 +264,32 @@ void animate_victory_menu()
 
 void draw_victory_menu()
 {
+
     animate_victory_menu();
 
-    DrawRectangleV({ 0.0f, 0.0f }, { screen_size.x, screen_size.y }, { 0, 0, 0, 50 });
+
+    DrawRectangleV({0,0}, {screen_size.x, screen_size.y}, {0,0,0,150});
+
 
     for (const auto& [x, y] : victory_balls_pos) {
-        DrawCircleV({ x, y }, victory_balls_size, WHITE);
+        DrawCircleV({x, y}, victory_balls_size, WHITE);
     }
 
-    const Text victory_title = {
-        "Victory!",
-        { 0.50f, 0.50f },
-        100.0f,
-        GOLD,
-        4.0f,
-        &menu_font
-    };
-    draw_text(victory_title);
 
-    const Text victory_subtitle = {
-        "Press Enter to Restart",
-        { 0.50f, 0.65f },
-        32.0f,
-        WHITE,
-        4.0f,
-        &menu_font
-    };
-    draw_text(victory_subtitle);
+    draw_text({ "Victory!", {0.5f, 0.35f}, 100.0f, GOLD, 4.0f, &menu_font });
+
+
+    draw_text({ TextFormat("Final Score: %d", score), {0.5f, 0.5f}, 48.0f, WHITE, 4.0f, &menu_font });
+
+
+    draw_text({ "Press Enter to Restart", {0.5f, 0.65f}, 32.0f, WHITE, 4.0f, &menu_font });
+
 }
 void draw_game_over_menu()
 {
-    ClearBackground(RED);
+    DrawRectangleV({0,0}, {screen_size.x, screen_size.y}, {0,0,0,150});
 
     DrawText("GAME OVER", 600, 300, 120, WHITE);
-    DrawText(TextFormat("Final Score: %d", score), 600, 400, 60, GOLD);
+    DrawText(TextFormat("Final Score: %d", score), 650, 400, 60, GOLD);
     DrawText("Press SPACE or ENTER to restart", 500, 550, 50, WHITE);
 }

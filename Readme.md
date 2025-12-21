@@ -26,7 +26,7 @@ Be creative, and ensure to implement all the requirements outlined below in your
 
 3.Updated the breakable block textures to wood.png.
 
-4.Added four additional levels to the game.
+4.Added five additional levels to the game.
 
 5.Implemented a sound effect for destroying breakable blocks (brick_destroyed.wav).
 
@@ -48,6 +48,13 @@ the game starts with a menu screen, and pressing SPACE begins the game.
 12.Implemented a boss enemy with movement, collision detection, health, and sound effects.
 
 13.Implemented the score counter that counts how many blocks have been destroys
+
+14.Added background Music "Secunda" from Skyrim
+
+15.Changed the texture of paddle to blue star pixel star
+
+16.Changed the texture of breakable blocks to black bricks
+
 ## Core Requirements
 
 * **Title or Menu Screen**: The game should start with a title screen featuring a game logo and a message to start the

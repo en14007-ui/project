@@ -103,7 +103,7 @@ void update()
             boss.hit_cooldown = 2.20f;
 
             ball_vel.y *= -1.0f;
-            ball_vel.x += (ball_pos.x + ball_size.x * 0.1f - (boss_grid.x + boss_grid.width * 0.1f)) * 0.1f;
+            ball_vel.x += (ball_pos.x + ball_size.x * 0.5f - (boss_grid.x + boss_grid.width * 0.5f)) * 0.02f;
 
             ball_pos.y = boss_grid.y - ball_size.y - 0.01f;
 
@@ -143,10 +143,11 @@ int main()
     load_sounds();
     state = menu_state;
     while (!WindowShouldClose()) {
-
+        UpdateMusicStream(background_music);
         if (state == menu_state && IsKeyPressed(KEY_SPACE)) {
             load_level(0);
             state = in_game_state;
+            PlayMusicStream(background_music);
         }
 
         if (state == in_game_state || state == paused_state) {
@@ -157,12 +158,14 @@ int main()
 
         if (state == in_game_state) {
             update();
+
         }
         BeginDrawing();
         if (state == menu_state) {
             draw_menu();
         } else if (state == gameover_state) {
             draw_game_over_menu();
+
             if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_ENTER)) {
                 lives = 5;
                 score = 0;
@@ -177,6 +180,7 @@ int main()
 
             if (state == paused_state) {
                 draw_pause_menu();
+
             }
         }
         if (state == victory_state) {
