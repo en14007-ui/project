@@ -163,7 +163,15 @@ void draw_ui()
 
 void draw_level()
 {
-    ClearBackground((Color) { 15, 18, 30, 255 });
+    DrawTexturePro(
+        background_texture,
+        { 0, 0, (float)background_texture.width, (float)background_texture.height },
+        { 0, 0, (float)GetScreenWidth(), (float)GetScreenHeight() },
+        { 0, 0 },
+        0.0f,
+        WHITE
+    );
+
 
     for (size_t row = 0; row < current_level.rows; ++row) {
         for (size_t column = 0; column < current_level.columns; ++column) {
@@ -268,7 +276,7 @@ void draw_victory_menu()
         "Victory!",
         { 0.50f, 0.50f },
         100.0f,
-        RED,
+        GOLD,
         4.0f,
         &menu_font
     };

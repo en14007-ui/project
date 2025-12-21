@@ -4,55 +4,112 @@
 
 ---
 
-The primary goal of this project is to build a simple [Breakout](https://en.wikipedia.org/wiki/Breakout_(video_game)) game written in C++ using the [raylib](https://www.raylib.com) graphics library. In this game, the player controls a paddle that keeps the ball within the level, which destroys blocks upon contact. The objective of the game is to navigate through a series of levels, cleaning all levels of blocks.
 
-The game should adhere to the best structured and procedural programming principles. You should strive to effectively utilize structured programming constructs such as selection constructs and loops. Additionally, endeavor to achieve procedural decomposition of your code into functions. Ensure consistent formatting in your code, adhering to coding style best practices, including proper naming, indentation, use of white spaces, blank lines, and comments.
+The primary goal of this project is to build a simple [Breakout](https://en.wikipedia.org/wiki/Breakout_(video_game))
+game written in C++ using the [raylib](https://www.raylib.com) graphics library. In this game, the player controls a
+paddle that keeps the ball within the level, which destroys blocks upon contact. The objective of the game is to
+navigate through a series of levels, cleaning all levels of blocks.
+
+The game should adhere to the best structured and procedural programming principles. You should strive to effectively
+utilize structured programming constructs such as selection constructs and loops. Additionally, endeavor to achieve
+procedural decomposition of your code into functions. Ensure consistent formatting in your code, adhering to coding
+style best practices, including proper naming, indentation, use of white spaces, blank lines, and comments.
 
 Be creative, and ensure to implement all the requirements outlined below in your project.
 
 ---
+#Implemented Features
 
+1.Updated the wall textures by replacing them with wall_2.png.
+
+2.Updated the ball texture, replacing it with fire_ball0.png.
+
+3.Updated the breakable block textures to wood.png.
+
+4.Added four additional levels to the game.
+
+5.Implemented a sound effect for destroying breakable blocks (brick_destroyed.wav).
+
+6.Added a victory sound effect (Victory.wav) that plays when the player wins.
+
+7.Added a sound effect when the boss is hit by the fireball (Boss_hit.ogg).
+
+8.Implemented a Game Over menu and a life system:
+when the ball leaves the level boundaries, the player's lives decrease by one.
+
+9.Implemented a pause menu:
+pressing ESC during gameplay pauses the game, and pressing it again resumes the game.
+
+10.Implemented a main menu overlay:
+the game starts with a menu screen, and pressing SPACE begins the game.
+
+11.Implemented a victory menu that appears after the boss is defeated.
+
+12.Implemented a boss enemy with movement, collision detection, health, and sound effects.
+
+13.Implemented the score counter that counts how many blocks have been destroys
 ## Core Requirements
 
-* **Title or Menu Screen**: The game should start with a title screen featuring a game logo and a message to start the game. Alternatively, it could be a menu screen with options to start the game, view the instructions, or quit the game.
+* **Title or Menu Screen**: The game should start with a title screen featuring a game logo and a message to start the
+  game. Alternatively, it could be a menu screen with options to start the game, view the instructions, or quit the
+  game.
 
 ![Title Screen](https://i.postimg.cc/ZRXBRS8N/Screenshot-20251029-161437.png)
 
-* **Game Screen**: From the title or menu screen, the player should be able to start the game. The game screen displays the paddle, the ball, and the level. The player moves the paddle using the keyboard. The goal is to move from one level to the next by destroying all the blocks in every level. In our game, the objective of the player is to reach the end by passing through all the levels.
+* **Game Screen**: From the title or menu screen, the player should be able to start the game. The game screen displays
+  the paddle, the ball, and the level. The player moves the paddle using the keyboard. The goal is to move from one
+  level to the next by destroying all the blocks in every level. In our game, the objective of the player is to reach
+  the end by passing through all the levels.
 
 ![Game Screen, Level 2](https://i.postimg.cc/FzBNx6FK/Screenshot-20251103-175907.png)
 
-* **Pause Screen**: The player should be able to pause the game by pressing the Escape key. A 'Pause' screen appears with an option to resume the game. Pressing the Escape key resumes the game.
+* **Pause Screen**: The player should be able to pause the game by pressing the Escape key. A 'Pause' screen appears
+  with an option to resume the game. Pressing the Escape key resumes the game.
 
 ![Pause Screen](https://i.postimg.cc/Gt5djf3h/Screenshot-20251103-175849.png)
 
-* **Victory Screen**: Upon passing through all the levels, a victory screen displays a congratulatory message, allowing the player to return to the title screen. Some animation, possibly from lab class exercises, should play in the background to indicate the game's completion. You are at liberty to come up with the animation.
+* **Victory Screen**: Upon passing through all the levels, a victory screen displays a congratulatory message, allowing
+  the player to return to the title screen. Some animation, possibly from lab class exercises, should play in the
+  background to indicate the game's completion. You are at liberty to come up with the animation.
 
 ![Victory Screen](https://i.postimg.cc/CL5KfGhW/Screenshot-20251103-175933.png)
 
 ## Additional Requirements
 
-* **Additional Levels**: Add at least *three extra levels* to the game. These levels should be more challenging than the ones given. You may add more levels if you want.
+* **Additional Levels**: Add at least *three extra levels* to the game. These levels should be more challenging than the
+  ones given. You may add more levels if you want.
 
-* **Additional Game Elements**: Introduce at least *three new elements* to the game. These could include collectibles, moving obstacles, additional balls, turning the game 3-D, special time events, portals, more advanced bounce-off physics, improved collision detecion, or other modifications to the gameplay. Let your creativity guide you.
+* **Additional Game Elements**: Introduce at least *three new elements* to the game. These could include collectibles,
+  moving obstacles, additional balls, turning the game 3-D, special time events, portals, more advanced bounce-off
+  physics, improved collision detecion, or other modifications to the gameplay. Let your creativity guide you.
 
-* **Game Over Screen**: Implement *a 'Game Over' screen* that displays a message when the player loses the game, such as when the player runs out of lives or the ball leaves the level. This screen should allow the player to return to the title screen or try again.
+* **Game Over Screen**: Implement *a 'Game Over' screen* that displays a message when the player loses the game, such as
+  when the player runs out of lives or the ball leaves the level. This screen should allow the player to return to the
+  title screen or try again.
 
-* **Additional Sounds**: Add at least *three new sounds* to the game. These sounds could accompany actions like bouncing off obstacles, picking up collectibles, or exiting the final level.
+* **Additional Sounds**: Add at least *three new sounds* to the game. These sounds could accompany actions like bouncing
+  off obstacles, picking up collectibles, or exiting the final level.
 
-* **Background Music**: Incorporate at least *one music track* into the game. This track should play on at least one of the screens. Ensure the track is royalty-free or that you have usage rights. Store the music files in the `data/music/` directory and keep them reasonably sized.
+* **Background Music**: Incorporate at least *one music track* into the game. This track should play on at least one of
+  the screens. Ensure the track is royalty-free or that you have usage rights. Store the music files in the
+  `data/music/` directory and keep them reasonably sized.
 
 ## Practical Requirements
 
-* Develop the code **independently of your peers** and maintain a **detailed project commit history**. Be aware that points will be withheld for any suspicion of code plagiarism, even if it's unfounded. Additionally, consistent progress must be evident in your project commit history to receive any points at all.
+* Develop the code **independently of your peers** and maintain a **detailed project commit history**. Be aware that
+  points will be withheld for any suspicion of code plagiarism, even if it's unfounded. Additionally, consistent
+  progress must be evident in your project commit history to receive any points at all.
 
-* Rewrite the `Readme.md` file with a description of your game and a list of the features that you have implemented. **Note that partially implementing some features is preferable to not implementing any.**
+* Rewrite the `Readme.md` file with a description of your game and a list of the features that you have implemented. *
+  *Note that partially implementing some features is preferable to not implementing any.**
 
-* Ensure that the game is playable and contains all necessary files. **It should be straightforward for the instructor to set up and start the game with minimal effort.**
+* Ensure that the game is playable and contains all necessary files. **It should be straightforward for the instructor
+  to set up and start the game with minimal effort.**
 
 ## Deliverables
 
-* Develop the game within the `<repository>` directory. This directory should include a `data/` subdirectory containing all game assets (images, sprites, fonts, sounds, etc.).
+* Develop the game within the `<repository>` directory. This directory should include a `data/` subdirectory containing
+  all game assets (images, sprites, fonts, sounds, etc.).
 
 * Organize your code into `.h` and `.cpp` files. Each file should contain related constants, variables, and functions.
 
@@ -61,6 +118,7 @@ Be creative, and ensure to implement all the requirements outlined below in your
 Upon completion, your Project directory should have an organized structure similar to the following example:
 
 ```
+
 .
 └── <repository>
     ├── data
@@ -79,7 +137,9 @@ Upon completion, your Project directory should have an organized structure simil
     └── Readme.md
 ```
 
-[Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) our repository first, then clone it. If you skip this step, you will not be able to push your changes. Commit regularly, such as after implementing a feature (ensure the program is in a compilable state).
+[Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) our
+repository first, then clone it. If you skip this step, you will not be able to push your changes. Commit regularly,
+such as after implementing a feature (ensure the program is in a compilable state).
 
 ---
 
@@ -87,9 +147,12 @@ Upon completion, your Project directory should have an organized structure simil
 
 Set up the raylib project as you have done in previous labs for graphical assignments.
 
-Before attempting to run the code for the `breakout` target, please ensure that you set the `Working directory` correctly in your CLion IDE.
+Before attempting to run the code for the `breakout` target, please ensure that you set the `Working directory`
+correctly in your CLion IDE.
 
-The current working directory must point to the directory containing the necessary resource files (e.g., `data/images/`, `data/fonts/`, and `data/sound|music/`). Failure to do so will result in these resources not being loaded properly, and you will not see or hear the intended visuals or sounds in the game.
+The current working directory must point to the directory containing the necessary resource files (e.g., `data/images/`,
+`data/fonts/`, and `data/sound|music/`). Failure to do so will result in these resources not being loaded properly, and
+you will not see or hear the intended visuals or sounds in the game.
 
 To set the working directory:
 
@@ -99,7 +162,8 @@ To set the working directory:
 4. Set it to the `$ProjectFileDir$` value (this ensures it points to the root project directory with the `data` folder).
 5. Save your configuration and run the target again.
 
-If you encounter any issues, double-check that the paths to the resource files are correct relative to the working directory.
+If you encounter any issues, double-check that the paths to the resource files are correct relative to the working
+directory.
 
 ## Implementation Tips
 
@@ -112,7 +176,8 @@ If you encounter any issues, double-check that the paths to the resource files a
 
 ## Deadline
 
-Refer to the specific course or assignment page on Moodle for detailed information about deadlines and the grading rubric.
+Refer to the specific course or assignment page on Moodle for detailed information about deadlines and the grading
+rubric.
 
 ## Links
 
