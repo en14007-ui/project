@@ -4,7 +4,6 @@
 #include "ball.h"
 #include "level.h"
 #include "paddle.h"
-
 #include "raylib.h"
 
 #include <cmath>
@@ -138,8 +137,10 @@ void draw_ui()
     };
     draw_text(level_counter);
 
+    std::string blocks_text = "BLOCKS " + std::to_string(blocks_left);
+
     const Text boxes_remaining = {
-        "BLOCKS " + std::to_string(current_level_blocks),
+        blocks_text.c_str(),
         { 0.5f, 0.9625f },
         48.0f,
         WHITE,
@@ -159,6 +160,15 @@ void draw_ui()
         &menu_font
     };
     draw_text(score_text);
+    const Text coin_text = {
+        "COIN: " + std::to_string(coins),
+        { 0.80f, 0.1f },
+        48.0f,
+        YELLOW,
+        4.0f,
+        &menu_font
+    };
+    draw_text(coin_text);
 }
 
 void draw_level()
@@ -185,6 +195,9 @@ void draw_level()
                 break;
             case BLOCKS:
                 draw_image(block_texture, texture_x_pos, texture_y_pos, cell_size);
+                break;
+            case COINS:
+                draw_image(strong_block_texture,texture_x_pos,texture_y_pos, cell_size);
                 break;
             default:;
             }
@@ -280,6 +293,7 @@ void draw_victory_menu()
 
 
     draw_text({ TextFormat("Final Score: %d", score), {0.5f, 0.5f}, 48.0f, WHITE, 4.0f, &menu_font });
+    draw_text({ TextFormat("Total Coins: %d", coins), {0.5f, 0.60f}, 48.0f, WHITE, 4.0f, &menu_font });
 
 
     draw_text({ "Press Enter to Restart", {0.5f, 0.65f}, 32.0f, WHITE, 4.0f, &menu_font });
@@ -291,5 +305,6 @@ void draw_game_over_menu()
 
     DrawText("GAME OVER", 600, 300, 120, WHITE);
     DrawText(TextFormat("Final Score: %d", score), 650, 400, 60, GOLD);
+    DrawText(TextFormat("Total Coins: %d", coins), 650, 480, 60, GOLD);
     DrawText("Press SPACE or ENTER to restart", 500, 550, 50, WHITE);
 }

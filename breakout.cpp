@@ -35,6 +35,7 @@ void update()
     }
 
     move_ball();
+
     if (!is_ball_inside_level()) {
 
         lives--;
@@ -46,16 +47,22 @@ void update()
         } else {
             load_level(0);
         }
-    } else if (current_level_blocks == 0) {
+    } if (blocks_left == 0 && coins_left == 0) {
+
 
         if (current_level_index == level_count - 1 && boss.active) {
+            return;
         }
+
 
         if (current_level_index + 1 < level_count) {
             load_level(1);
             PlaySound(win_sound);
+            return;
         }
     }
+
+
 
     if (boss.active) {
 
@@ -102,7 +109,7 @@ void update()
             PlaySound(Boss_hit_sound);
             boss.hit_cooldown = 2.20f;
 
-            ball_vel.y *= -1.0f;
+            ball_vel.y *= -1.1f;
             ball_vel.x += (ball_pos.x + ball_size.x * 0.5f - (boss_grid.x + boss_grid.width * 0.5f)) * 0.02f;
 
             ball_pos.y = boss_grid.y - ball_size.y - 0.01f;

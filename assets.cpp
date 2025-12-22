@@ -21,6 +21,7 @@ void load_textures()
     ball_sprite = load_sprite("data/images/fire_ball/fire_ball", ".png", 8, true, 10);
      boss_texture = LoadTexture("data/images/Boss.png");
     background_texture = LoadTexture("data/images/background01.png");
+    coin_texture=LoadTexture("data/images/coin.png");
 
 }
 
@@ -33,6 +34,7 @@ void unload_textures()
     UnloadTexture(paddle_texture);
     unload_sprite(ball_sprite);
     UnloadTexture(boss_texture);
+    UnloadTexture(strong_block_texture);
 
 
 }

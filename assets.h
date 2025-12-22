@@ -19,6 +19,7 @@ inline Sound win_sound;
 inline Sound lose_sound;
 inline Texture2D background_texture;
 inline Music background_music;
+inline Texture2D coin_texture;
 void load_fonts();
 void unload_fonts();
 

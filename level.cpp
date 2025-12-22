@@ -7,23 +7,25 @@
 
 #include "raylib.h"
 
-
-
 bool fire_ball_active = false;
 int multi_ball_count = 0;
 
 int lives = 5;
 int score = 0;
+int coins = 0;
+int coins_left=0;
+int blocks_left=0;
 
 char* current_level_data;
 game_state state = menu_state;
 void restart()
 {
 
-    current_level_index=0;
+    current_level_index = 0;
     load_level(0);
     lives = 5;
-    score=0;
+    score = 0;
+    coins = 0;
 }
 void load_level(const int offset)
 {
@@ -40,25 +42,34 @@ void load_level(const int offset)
 
     const size_t rows = levels[current_level_index].rows;
     const size_t columns = levels[current_level_index].columns;
-    current_level_blocks = 0;
+
+
+    blocks_left = 0;
+    coins_left  = 0;
     current_level_data = new char[rows * columns];
     for (int row = 0; row < rows; ++row) {
         for (int column = 0; column < columns; ++column) {
-            current_level_data[row * columns + column] = levels[current_level_index].data[row * columns + column];
-            if (current_level_data[row * columns + column] == BLOCKS) {
-                ++current_level_blocks;
+            char cell = levels[current_level_index].data[row * columns + column];
+            current_level_data[row * columns + column] = cell; {
+                if (cell == BLOCKS) {
+                    blocks_left++;
+                }
+                else if (cell == COINS) {
+                    coins_left++;
+                }
             }
         }
-    }if (current_level_index==level_count-1) {
-        boss.active=true;
+    }
+    if (current_level_index == level_count - 1) {
+        boss.active = true;
         boss.pos = { GetScreenWidth() / 2 - boss.width / 2, GetScreenHeight() * 0.15f };
         boss.pos.y = shift_to_center.y + 2.5f * cell_size;
-        boss.health=10;
-        boss.speed=100.0f;
-        boss.direction=1;
+        boss.health = 10;
+        boss.speed = 100.0f;
+        boss.direction = 1;
         boss.hit_cooldown = 0.0f;
-    }else {
-        boss.active=false;
+    } else {
+        boss.active = false;
     }
     current_level = { rows, columns, current_level_data };
     ball_lost = false;
