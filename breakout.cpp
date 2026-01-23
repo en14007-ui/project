@@ -9,8 +9,6 @@
 bool player_won = false;
 bool ball_lost = false;
 
-
-
 void restart();
 
 static inline Rectangle px_rect_to_grid(const Vector2 px_pos, const Vector2 px_size)
@@ -47,13 +45,12 @@ void update()
         } else {
             load_level(0);
         }
-    } if (blocks_left == 0 && coins_left == 0) {
-
+    }
+    if (blocks_left == 0 && coins_left == 0) {
 
         if (current_level_index == level_count - 1 && boss.active) {
             return;
         }
-
 
         if (current_level_index + 1 < level_count) {
             load_level(1);
@@ -61,8 +58,6 @@ void update()
             return;
         }
     }
-
-
 
     if (boss.active) {
 
@@ -123,7 +118,6 @@ void update()
                 PlaySound(Victory_sound);
             }
         }
-
     }
 }
 void draw()
@@ -165,7 +159,6 @@ int main()
 
         if (state == in_game_state) {
             update();
-
         }
         BeginDrawing();
         if (state == menu_state) {
@@ -187,7 +180,6 @@ int main()
 
             if (state == paused_state) {
                 draw_pause_menu();
-
             }
         }
         if (state == victory_state) {

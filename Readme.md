@@ -18,7 +18,7 @@ style best practices, including proper naming, indentation, use of white spaces,
 Be creative, and ensure to implement all the requirements outlined below in your project.
 
 ---
-#Implemented Features
+## Implemented Features
 
 1.Updated the wall textures by replacing them with wall_2.png.
 
@@ -45,7 +45,27 @@ the game starts with a menu screen, and pressing SPACE begins the game.
 
 11.Implemented a victory menu that appears after the boss is defeated.
 
-12.Implemented a boss enemy with movement, collision detection, health, and sound effects.
+12.Implemented a boss enemy with following features:
+
+* **12.1 Boss appears on the last level.**
+
+
+* **12.2 Boss has a health bar that decreases when hit by the ball.**
+
+
+* **12.3 Boss moves horizontally across the screen with increasing speed.**
+
+
+* **12.4 Boss changes direction when hitting walls or level boundaries.**
+
+
+* **12.5 Ball collision with boss updates ball velocity realistically to prevent clipping.**
+
+
+* **12.6 Boss hit triggers a sound effect.**
+
+
+* **12.7 Boss defeat triggers the victory menu and victory sound.**
 
 13.Implemented the score counter that counts how many blocks have been destroys
 
@@ -54,6 +74,21 @@ the game starts with a menu screen, and pressing SPACE begins the game.
 15.Changed the texture of paddle to blue star pixel star
 
 16.Changed the texture of breakable blocks to black bricks
+
+17.Added collectible coins:
+
+* **17.1 Coins appear in levels and can be collected by the ball.**
+
+
+* **17.2 Each coin increases the player’s coin score.**
+
+
+* **17.3 Coin collection plays a sound effect.**
+
+
+* **17.4 Coins are displayed in the UI.**
+
+18.Added background picture for all levels**
 
 ## Core Requirements
 

@@ -162,7 +162,7 @@ void draw_ui()
     draw_text(score_text);
     const Text coin_text = {
         "COIN: " + std::to_string(coins),
-        { 0.80f, 0.1f },
+        { 0.90f, 0.1f },
         48.0f,
         YELLOW,
         4.0f,
@@ -197,7 +197,7 @@ void draw_level()
                 draw_image(block_texture, texture_x_pos, texture_y_pos, cell_size);
                 break;
             case COINS:
-                draw_image(strong_block_texture,texture_x_pos,texture_y_pos, cell_size);
+                draw_image(coin_texture,texture_x_pos,texture_y_pos, cell_size);
                 break;
             default:;
             }
