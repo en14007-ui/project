@@ -24,8 +24,10 @@ A **classic brick-breaker** with modern features — boss fights, power-ups, coi
 |----------------------------|----------------------------|----------------------------|----------------------------|
 | ![Menu](https://github.com/user-attachments/assets/ef0cf924-d037-4771-98a0-322162dda7cb) | ![Gameplay](https://github.com/user-attachments/assets/33f008dd-f7c7-42d8-be92-f63f18835331) | ![Boss](https://github.com/user-attachments/assets/a7d517cb-d284-41b2-8fca-2e70a264c5b0) | ![Victory](https://github.com/user-attachments/assets/301f86a4-ab72-4d49-9d45-d97615182b7a) |
 
-| Game Over (Lose Screen) || Pause Menu  |
-| ![Lose](https://github.com/user-attachments/assets/ee46a0ee-59ec-4aa7-aa53-4d8408b92ac2) | ![Pause](https://github.com/user-attachments/assets/ab706ec2-dc73-463f-a213-d1c6e88348d7) |
+Game Over (Lose Screen) 
+![Lose](https://github.com/user-attachments/assets/ee46a0ee-59ec-4aa7-aa53-4d8408b92ac2) 
+Pause Menu
+![Pause](https://github.com/user-attachments/assets/ab706ec2-dc73-463f-a213-d1c6e88348d7) 
 
 ## Game Assets Showcase
 
