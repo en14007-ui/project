@@ -13,15 +13,15 @@ Classic brick-breaker game with modern twists — built from scratch in **C++** 
 - Background music + sound effects
 - Clean code structure (separate files for ball, paddle, level, graphics, assets)
 ## Screenshots
-## Menu screen
+**Menu screen**
 <img width="1919" height="1010" alt="Снимок экрана 2026-02-07 152916" src="https://github.com/user-attachments/assets/ef0cf924-d037-4771-98a0-322162dda7cb" />
-## Casual gaming
+**Casual gaming**
 <img width="1919" height="1019" alt="Снимок экрана 2026-02-07 153354" src="https://github.com/user-attachments/assets/33f008dd-f7c7-42d8-be92-f63f18835331" />
-## Lose screen
+**Lose screen**
 <img width="1915" height="990" alt="Снимок экрана 2026-02-07 153231" src="https://github.com/user-attachments/assets/ee46a0ee-59ec-4aa7-aa53-4d8408b92ac2" />
-## Boss Fight
+**Boss Fight**
 <img width="1918" height="1012" alt="Снимок экрана 2026-02-07 152954" src="https://github.com/user-attachments/assets/a7d517cb-d284-41b2-8fca-2e70a264c5b0" />
-## Victory screen
+**Victory screen**
 <img width="1919" height="1011" alt="Снимок экрана 2026-02-07 153651" src="https://github.com/user-attachments/assets/301f86a4-ab72-4d49-9d45-d97615182b7a" />
 
 ## Controls
