@@ -25,16 +25,17 @@ A **classic brick-breaker** with modern features — boss fights, power-ups, coi
 | ![Menu](https://github.com/user-attachments/assets/ef0cf924-d037-4771-98a0-322162dda7cb) | ![Gameplay](https://github.com/user-attachments/assets/33f008dd-f7c7-42d8-be92-f63f18835331) | ![Boss](https://github.com/user-attachments/assets/a7d517cb-d284-41b2-8fca-2e70a264c5b0) | ![Victory](https://github.com/user-attachments/assets/301f86a4-ab72-4d49-9d45-d97615182b7a) |
 
 | Game Over (Lose Screen)    | Pause Menu (not uploaded yet) |
+
 |----------------------------|-------------------------------|
-| ![Lose](https://github.com/user-attachments/assets/ee46a0ee-59ec-4aa7-aa53-4d8408b92ac2) | *(Add pause screenshot later)* |
+| ![Lose](https://github.com/user-attachments/assets/ee46a0ee-59ec-4aa7-aa53-4d8408b92ac2) | ![Pause](<img width="1919" height="1010" alt="Снимок экрана 2026-02-07 162210" src="https://github.com/user-attachments/assets/ab706ec2-dc73-463f-a213-d1c6e88348d7" />) |
 
 ## Game Assets Showcase
 
 ### Textures (all pixel art, 64×64 or scaled)
 
-| Normal Brick (wood)       | Coin Block                | Boss                      | Paddle (Normal)           | Paddle (Big)              | Fireball Power-Up         | Background                |
-|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| ![Wood](https://github.com/user-attachments/assets/43836744-1113-4ce9-82dc-93dc9031d695) | ![Coin](https://github.com/user-attachments/assets/2e542882-1bf5-4827-845c-32e05f07ffbd) | ![Boss](https://github.com/user-attachments/assets/0b53bfc8-46b2-45f4-9101-3695add4ed86) | *(Add normal paddle)* | *(Add big paddle)* | ![Fireball](https://github.com/user-attachments/assets/7fad20ae-3f2a-441d-b5b0-f59ebae25f0c) | ![Background](https://github.com/user-attachments/assets/ba0db777-a012-4edd-88f3-309a08eb52b9) |
+| Normal Brick (wood)       | Coin Block                | Boss                      | Fireball Power-Up         | Background                |
+|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
+| ![Wood](https://github.com/user-attachments/assets/43836744-1113-4ce9-82dc-93dc9031d695) | ![Coin](https://github.com/user-attachments/assets/2e542882-1bf5-4827-845c-32e05f07ffbd) | ![Boss](https://github.com/user-attachments/assets/0b53bfc8-46b2-45f4-9101-3695add4ed86) | ![Fireball](https://github.com/user-attachments/assets/7fad20ae-3f2a-441d-b5b0-f59ebae25f0c) | ![Background](https://github.com/user-attachments/assets/ba0db777-a012-4edd-88f3-309a08eb52b9) |
 
 ### Walls
 
@@ -45,7 +46,8 @@ A **classic brick-breaker** with modern features — boss fights, power-ups, coi
 - **Victory** — [Victory.wav](https://github.com/user-attachments/files/25151415/Victory.wav)  
 - **Lose** — [lose.wav](https://github.com/user-attachments/files/25151419/lose.wav)  
 - **Brick Destroyed / Coin** — [brick_destroyed.wav](https://github.com/user-attachments/files/25151425/brick_destroyed.wav)  
-- Background music — looping chiptune track (not uploaded yet)
+- **Background music** — [Background.mp3](https://github.com/user-attachments/files/25151618/Background.mp3)
+
 
 ### Controls
 
